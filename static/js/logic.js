@@ -37,9 +37,6 @@ function colorDef(d) {
 }
 
 
-function createPopups(feature, layer) {
-    layer.bindPopup("<h3>" + feature.properties.place + "</h3> <hr> <p>" + new Date(feature.properties.time) + "</p>");
-}
 
 
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson", function(data) {
@@ -51,7 +48,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             console.log(latlng)
 
             let circleMarkerAttributes = {
-                radius: feature.properties.mag*5,
+                radius: feature.properties.mag*3,
                 fillColor: colorDef(feature.geometry.coordinates[2]),
                 fillOpacity: .6,
                 color: 'white',
@@ -60,7 +57,13 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             };
             
             return L.circleMarker(latlng, circleMarkerAttributes)
-        }
+        },
+
+        onEachFeature: function (feature, layer){
+                layer.bindPopup( "Magnitude: " + feature.properties.mag + "<hr> <p>" + new Date(feature.properties.time) + "</p>");
+            }
+        
+        
         
     }).addTo(map);
 
@@ -69,6 +72,26 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     
     L.control.layers(baseMaps, overlayMaps, {
         collapsed: false
-    }).bindPopup("<h3>" + data.properties.place + "</h3> <hr> <p>" + new Date(data.properties.time) + "</p>").addTo(map);
+    }).addTo(map);
+
+
+    // thank you leaflet choropleth map documentation
+    let legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+        let div = L.DomUtil.create('div', 'info legend'),
+            depth = [-10, 10, 30, 50, 70, 90],
+            labels = ['#feebe2','#fcc5c0','#fa9fb5','#f768a1','#c51b8a','#7a0177'];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < depth.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + labels[i] + '"></i> ' +
+                depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
+    legend.addTo(map);
 });
 
