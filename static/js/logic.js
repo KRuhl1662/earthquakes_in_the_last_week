@@ -18,6 +18,9 @@ let darkmap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
     accessToken: API_KEY
 });
 
+let tectonicPlates = L.Shapefile('/shapefiles/PB2002_plates.zip');
+
+
 
 // creating the map object with options
 let map = L.map("map", {
@@ -25,6 +28,8 @@ let map = L.map("map", {
     zoom: 4,
     layers: lightmap
 });
+
+
 
 // according to USGS geojson, typical values range from 0-1000 in km, according to google ranges are typically shallow: 0-70km, intermediate 70-300km, deep 300-700km, but to match the homework example:
 function colorDef(d) {
@@ -68,7 +73,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }).addTo(map);
 
     let baseMaps = { "Light Map" : lightmap, "Dark Map" : darkmap };
-    let overlayMaps = { "Earthquakes" : earthquakeLocs};
+    let overlayMaps = { "Earthquakes" : earthquakeLocs, 'Tectonic Plates' : tectonicPlates};
     
     L.control.layers(baseMaps, overlayMaps, {
         collapsed: false
@@ -93,5 +98,6 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         return div;
     };
     legend.addTo(map);
-});
 
+
+});
