@@ -9,50 +9,49 @@ Steps:
 
 2. Create circle markers to represent each earthquake using its lat/long coordinates
 
-3. The markers will also be sized by their magnitude, I used a multiplier of 3 to each one to make the markers not only bigger but also help differentiate the magnitudes a little more.
+3. The markers will also be sized by their magnitude, I used a multiplier of 4 to each one to make the markers not only bigger but also help differentiate the magnitudes a little more.
 
-4. Each marker is colored by its depth in a range. I made multiple sets 
+4. Each marker is colored by its depth in a range. I made multiple sets because one to match the example and one to break them down as shallow, intermediate and deep. See comments in javascript
 
-   * **HINT** the depth of the earth can be found as the third coordinate for each earthquake.
+5. Added a couple of additional base maps to choose from (Light Map, Dark Map, Satellite Imagery)
 
-   * Include popups that provide additional information about the earthquake when a marker is clicked.
+6. Because I have a background in GIS, I really wanted to see if I could get the shapefiles in without using a GeoJSON. I added tectonic plates and a orogen layer.
 
-   * Create a legend that will provide context for your map data.
+---
+MY MAPS
+Basic Map that meets class requirements
+![KR-BasicMap](Images/KR-BasicMap.jpg)
 
-   * Your visualization should look something like the map above.
+Fancy map that has more layers and background
+![KR-FancyMap](Images/KR-FancyMap.jpg)
 
-- - -
+Map with different depth scale and color scheme
+![KR-Map](Images/KR-Map.jpg)
 
-### Level 2: More Data (Optional)
 
-![5-Advanced](Images/5-Advanced.png)
+Resources: 
 
-The USGS wants you to plot a second data set on your map to illustrate the relationship between tectonic plates and seismic activity. You will need to pull in a second data set and visualize it along side your original set of data. Data on tectonic plates can be found at <https://github.com/fraxen/tectonicplates>.
+A list of links that really helped me with this assignment
 
-In this step we are going to..
+Leaflet Docmentation:
+[Leaflet](https://leafletjs.com/reference-1.7.1.html#marker)
+[Circle Markers](https://leafletjs.com/reference-1.7.1.html#circlemarker)
+[geoJSON](https://leafletjs.com/examples/geojson/)
+[Choropleth](https://leafletjs.com/examples/choropleth/)
+[Legend title](https://groups.google.com/g/leaflet-js/c/mtO2xWTA0VY?pli=1)
+[Legend with Color](https://leafletjs.com/examples/choropleth/)
+[geoJSON](https://leafletjs.com/examples/geojson/)
 
-* Plot a second data set on our map.
+Earthquake Info
+[Magnitude Scales](http://www.geo.mtu.edu/UPSeis/magnitude.html)
+[Depth Range](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects)
+[Eathquake geoJSOn Format](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 
-* Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently.
+Help with colors! -> [Color Brewer](https://colorbrewer2.org/#type=diverging&scheme=BrBG&n=11)
 
-* Add layer controls to our map.
 
-- - -
+Tectonic Data -> [Tectonic Plates](https://github.com/fraxen/tectonicplates)
 
-### Assessment
 
-Your final product will be assessed on the following metrics:
-
-* Completion of assigned tasks
-
-* Visual appearance
-
-* Professionalism
-
-* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
-
-**Good luck!**
-
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
+Basic shapefiles in leaflet -> [Shapefiles Leaflet](https://hub.packtpub.com/shapefiles-leaflet/#more)
+This guy Calvin did a whole bunch of ground work for shapefiles into leaflet [Shapefile Code](https://github.com/calvinmetcalf).

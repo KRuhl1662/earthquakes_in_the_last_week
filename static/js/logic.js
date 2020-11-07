@@ -32,13 +32,13 @@ let satmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y
 // creating the map object with options and setting your basemap
 let map = L.map("map", {
     center: [35.69, -105.94],
-    zoom: 4,
+    zoom: 5,
     layers: lightmap
 });
 
 
 
-// according to USGS geojson, typical values range from 0-1000 in km, according to google ranges are typically shallow: 0-70km, intermediate 70-300km, deep 300-700km. I would have broken these up differently using the shallow, intermediate and deep.
+// according to USGS typical values range from 0-1000 in km, according to google ranges are typically shallow: 0-70km, intermediate 70-300km, deep 300-700km. I would have broken these up differently using the shallow, intermediate and deep.
 function funcolormyDef(d) {
     return  d > 700 ? '#7a0177':
             d > 500 ? '#ae017e':
@@ -81,7 +81,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
             // we give the locations attributes
             let circleMarkerAttributes = {
-                radius: feature.properties.mag*3,
+                radius: feature.properties.mag*4,
                 //fillColor: funcolorDef(feature.geometry.coordinates[2]),
                 //fillColor: funcolormyDef(feature.geometry.coordinates[2]),
                 fillColor: colorDef(feature.geometry.coordinates[2]),
@@ -145,7 +145,7 @@ let tectonicPlates = new L.Shapefile('/shapefiles/PB2002_plates.zip', {
         //return{
             fillColor: 'none',
             color: '#bf812d',
-            weight: 1,
+            weight: 1.5,
             opacity: .8
         //}
     }
@@ -157,7 +157,7 @@ let orogenyZones = new L.Shapefile('/shapefiles/PB2002_orogens.zip', {
         //return{
             fillColor: 'none',
             color: '#35978f',
-            weight: 1,
+            weight: 1.5,
             opacity: .8
         //}
     }
