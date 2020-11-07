@@ -35,18 +35,18 @@ Resources:
 A list of links that really helped me with this assignment
 
 Leaflet Docmentation:
-![Leaflet](https://leafletjs.com/reference-1.7.1.html#marker)
-![Circle Markers](https://leafletjs.com/reference-1.7.1.html#circlemarker)
-![geoJSON](https://leafletjs.com/examples/geojson/)
-![Choropleth](https://leafletjs.com/examples/choropleth/)
-![Legend title](https://groups.google.com/g/leaflet-js/c/mtO2xWTA0VY?pli=1)
-![Legend with Color](https://leafletjs.com/examples/choropleth/)
-![geoJSON](https://leafletjs.com/examples/geojson/)
+[Leaflet](https://leafletjs.com/reference-1.7.1.html#marker)
+/[Circle Markers](https://leafletjs.com/reference-1.7.1.html#circlemarker)
+/[geoJSON](https://leafletjs.com/examples/geojson/)
+/[Choropleth](https://leafletjs.com/examples/choropleth/)
+/[Legend title](https://groups.google.com/g/leaflet-js/c/mtO2xWTA0VY?pli=1)
+/[Legend with Color](https://leafletjs.com/examples/choropleth/)
+/[geoJSON](https://leafletjs.com/examples/geojson/)
 
-Earthquake Info
-![Magnitude Scales](http://www.geo.mtu.edu/UPSeis/magnitude.html)
-![Depth Range](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects)
-![Eathquake geoJSOn Format](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
+Earthquake Info:
+[Magnitude Scales](http://www.geo.mtu.edu/UPSeis/magnitude.html)
+/[Depth Range](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects)
+/[Eathquake geoJSOn Format](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 
 Help with colors! -> [Color Brewer](https://colorbrewer2.org/#type=diverging&scheme=BrBG&n=11)
 
